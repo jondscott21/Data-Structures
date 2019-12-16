@@ -7,6 +7,7 @@ class Queue:
     def __init__(self):
         self.size = 0
         # Why is our DLL a good choice to store our elements?
+        # it gives us a nice list allows us access to a solid FIFO structure
         self.storage = DoublyLinkedList()
 
     def enqueue(self, value):
