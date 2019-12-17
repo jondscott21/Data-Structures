@@ -53,8 +53,14 @@ class BinarySearchTree:
         return cache['returned']
 
     # Return the maximum value found in the tree
-    def get_max(self):
-        pass
+    def get_max(self, cache={'max_val': 0}):
+        if self.right is None:
+            cache['max_val'] = self.value
+            return cache['max_val']
+        else:
+            self.right.get_max()
+        return cache['max_val']
+            
 
     # Call the function `cb` on the value of each node
     # You may use a recursive or iterative approach
@@ -91,12 +97,19 @@ class BinarySearchTree:
 
 bst = BinarySearchTree(5)
 
-bst.insert(2)
-bst.insert(3)
-bst.insert(6)
-bst.insert(7)
-bst.insert(10)
-print(bst.contains(6))
-print(bst.contains(8))
+# bst.insert(2)
+# bst.insert(3)
+# bst.insert(6)
+# bst.insert(7)
+# bst.insert(10)
+# print(bst.contains(6))
+# print(bst.contains(8))
 # print(bst.left.right.value)
 # print(bst.right.left.value)
+
+print(bst.get_max())
+bst.insert(30)
+print(bst.get_max())
+bst.insert(300)
+bst.insert(3)
+print(bst.get_max())
