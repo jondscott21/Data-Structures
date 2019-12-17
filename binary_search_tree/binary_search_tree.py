@@ -30,6 +30,8 @@ class BinarySearchTree:
     # False if it does not
     def contains(self, target, cache={'returned': False}):
         print(self.value, target)
+        if self.value == target:
+            return True
         if self.value > target:
             if self.left is None:
                 cache['returned'] = False
@@ -94,7 +96,7 @@ bst.insert(3)
 bst.insert(6)
 bst.insert(7)
 bst.insert(10)
-print(bst.contains(10))
+print(bst.contains(6))
 print(bst.contains(8))
 # print(bst.left.right.value)
 # print(bst.right.left.value)
