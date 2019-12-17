@@ -1,7 +1,7 @@
 import sys
-sys.path.append('../queue_and_stack')
-from dll_queue import Queue
-from dll_stack import Stack
+# sys.path.append('../queue_and_stack')
+# from dll_queue import Queue
+# from dll_stack import Stack
 
 
 class BinarySearchTree:
@@ -12,12 +12,43 @@ class BinarySearchTree:
 
     # Insert the given value into the tree
     def insert(self, value):
-        pass
+        if self.value == None:
+            self.value = value
+            return self
+        if self.value < value:
+            if self.right is None:
+                self.right = BinarySearchTree(value)
+            else:
+                self.right.insert(value)
+        else:
+            if self.left is None:
+                self.left = BinarySearchTree(value)
+            else:
+                self.left.insert(value)
 
     # Return True if the tree contains the value
     # False if it does not
-    def contains(self, target):
-        pass
+    def contains(self, target, cache={'returned': False}):
+        print(self.value, target)
+        if self.value > target:
+            if self.left is None:
+                cache['returned'] = False
+                return cache['returned']
+            elif self.left.value == target:
+                cache['returned'] = True
+                return cache['returned']
+            else:
+                self.left.contains(target)
+        elif self.value < target:
+            if self.right is None:
+                cache['returned'] = False
+                return cache['returned']
+            elif self.right.value == target:
+                cache['returned'] = True
+                return cache['returned']
+            else:
+                self.right.contains(target)
+        return cache['returned']
 
     # Return the maximum value found in the tree
     def get_max(self):
@@ -55,3 +86,15 @@ class BinarySearchTree:
     # Print Post-order recursive DFT
     def post_order_dft(self, node):
         pass
+
+bst = BinarySearchTree(5)
+
+bst.insert(2)
+bst.insert(3)
+bst.insert(6)
+bst.insert(7)
+bst.insert(10)
+print(bst.contains(10))
+print(bst.contains(8))
+# print(bst.left.right.value)
+# print(bst.right.left.value)
