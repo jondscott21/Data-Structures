@@ -85,7 +85,7 @@ class DoublyLinkedList:
     def move_to_front(self, node):
         if node is self.head:
             return
-        value = node.value
+        value = node
         self.delete(node)
         self.add_to_head(value)
     def move_to_end(self, node):

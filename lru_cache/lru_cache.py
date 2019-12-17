@@ -26,8 +26,7 @@ class LRUCache:
     def get(self, key):
         if key not in self.hash_map:
             return None
-        self.storage.delete(self.hash_map[key])
-        self.storage.add_to_head(self.hash_map[key])
+        self.storage.move_to_front(self.hash_map[key])
         return self.hash_map[key].value
     """
     Adds the given key-value pair to the cache. The newly-
@@ -41,9 +40,8 @@ class LRUCache:
     """
     def set(self, key, value):
         if key in self.hash_map:
-            self.storage.delete(self.hash_map[key])
             self.hash_map[key] = ListNode(value, key)
-            self.storage.add_to_head(self.hash_map[key])
+            self.storage.move_to_front(self.hash_map[key])
         else:
             self.hash_map.update({key: ListNode(value, key)})
             self.storage.add_to_head(self.hash_map[key])
