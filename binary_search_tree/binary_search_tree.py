@@ -95,7 +95,7 @@ class BinarySearchTree:
     def post_order_dft(self, node):
         pass
 
-bst = BinarySearchTree(5)
+# bst = BinarySearchTree(5)
 
 # bst.insert(2)
 # bst.insert(3)
@@ -138,13 +138,13 @@ bst = BinarySearchTree(5)
 # print('v4: ', v4, v4 in arr)
 # print('v5: ', v5, v5 in arr)
 
-bst = BinarySearchTree(1)
-bst.insert(8)
-bst.insert(5)
-bst.insert(7)
-bst.insert(6)
-bst.insert(3)
-bst.insert(4)
-bst.insert(2)
+# bst = BinarySearchTree(1)
+# bst.insert(8)
+# bst.insert(5)
+# bst.insert(7)
+# bst.insert(6)
+# bst.insert(3)
+# bst.insert(4)
+# bst.insert(2)
 
-bst.in_order_print(bst)
+# bst.in_order_print(bst)
