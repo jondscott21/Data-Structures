@@ -28,38 +28,27 @@ class BinarySearchTree:
 
     # Return True if the tree contains the value
     # False if it does not
-    def contains(self, target, cache={'returned': False}):
+    def contains(self, target):
         print(self.value, target)
         if self.value == target:
             return True
         if self.value > target:
             if self.left is None:
-                cache['returned'] = False
-                return cache['returned']
-            elif self.left.value == target:
-                cache['returned'] = True
-                return cache['returned']
+                return False
             else:
-                self.left.contains(target)
+                return self.left.contains(target)
         elif self.value < target:
             if self.right is None:
-                cache['returned'] = False
-                return cache['returned']
-            elif self.right.value == target:
-                cache['returned'] = True
-                return cache['returned']
+                return False
             else:
-                self.right.contains(target)
-        return cache['returned']
+                return self.right.contains(target)
 
     # Return the maximum value found in the tree
-    def get_max(self, cache={'max_val': 0}):
+    def get_max(self):
         if self.right is None:
-            cache['max_val'] = self.value
-            return cache['max_val']
+            return self.value
         else:
-            self.right.get_max()
-        return cache['max_val']
+            return self.right.get_max()
             
 
     # Call the function `cb` on the value of each node
@@ -97,19 +86,19 @@ class BinarySearchTree:
 
 bst = BinarySearchTree(5)
 
-# bst.insert(2)
-# bst.insert(3)
-# bst.insert(6)
-# bst.insert(7)
-# bst.insert(10)
-# print(bst.contains(6))
-# print(bst.contains(8))
+bst.insert(2)
+bst.insert(3)
+bst.insert(6)
+bst.insert(7)
+bst.insert(10)
+print(bst.contains(10))
+print(bst.contains(8))
 # print(bst.left.right.value)
 # print(bst.right.left.value)
 
-print(bst.get_max())
-bst.insert(30)
-print(bst.get_max())
-bst.insert(300)
-bst.insert(3)
-print(bst.get_max())
+# print(bst.get_max())
+# bst.insert(30)
+# print(bst.get_max())
+# bst.insert(300)
+# bst.insert(3)
+# print(bst.get_max())
