@@ -1,4 +1,5 @@
 import sys
+import random
 # sys.path.append('../queue_and_stack')
 # from dll_queue import Queue
 # from dll_stack import Stack
@@ -56,11 +57,10 @@ class BinarySearchTree:
     def for_each(self, cb):
         cb(self.value)
         if self.left is not None:
-            return self.left.for_each(cb)
+            self.left.for_each(cb)
         if self.right is not None:
-            return self.right.for_each(cb)
-        else:
-            return
+            self.right.for_each(cb)
+        return
 
     # DAY 2 Project -----------------------
 
@@ -90,7 +90,7 @@ class BinarySearchTree:
     def post_order_dft(self, node):
         pass
 
-# bst = BinarySearchTree(5)
+bst = BinarySearchTree(5)
 
 # bst.insert(2)
 # bst.insert(3)
@@ -108,3 +108,27 @@ class BinarySearchTree:
 # bst.insert(300)
 # bst.insert(3)
 # print(bst.get_max())
+
+arr = []
+cb = lambda x: arr.append(x)
+
+v1 = random.randint(1, 101)
+v2 = random.randint(1, 101)
+v3 = random.randint(1, 101)
+v4 = random.randint(1, 101)
+v5 = random.randint(1, 101)
+
+bst.insert(v1)
+bst.insert(v2)
+bst.insert(v3)
+bst.insert(v4)
+bst.insert(v5)
+
+bst.for_each(cb)
+
+print('5: ', 5, 5 in arr)
+print('v1: ', v1, v1 in arr)
+print('v2: ', v2, v2 in arr)
+print('v3: ', v3, v3 in arr)
+print('v4: ', v4, v4 in arr)
+print('v5: ', v5, v5 in arr)
