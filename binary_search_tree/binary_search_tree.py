@@ -67,7 +67,12 @@ class BinarySearchTree:
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
-        pass
+        if node.left is not None:
+            self.left.in_order_print(node.left)
+        print(node.value)
+        if node.right is not None:
+            self.right.in_order_print(node.right)
+        # return
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
@@ -109,26 +114,37 @@ bst = BinarySearchTree(5)
 # bst.insert(3)
 # print(bst.get_max())
 
-arr = []
-cb = lambda x: arr.append(x)
+# arr = []
+# cb = lambda x: arr.append(x)
 
-v1 = random.randint(1, 101)
-v2 = random.randint(1, 101)
-v3 = random.randint(1, 101)
-v4 = random.randint(1, 101)
-v5 = random.randint(1, 101)
+# v1 = random.randint(1, 101)
+# v2 = random.randint(1, 101)
+# v3 = random.randint(1, 101)
+# v4 = random.randint(1, 101)
+# v5 = random.randint(1, 101)
 
-bst.insert(v1)
-bst.insert(v2)
-bst.insert(v3)
-bst.insert(v4)
-bst.insert(v5)
+# bst.insert(v1)
+# bst.insert(v2)
+# bst.insert(v3)
+# bst.insert(v4)
+# bst.insert(v5)
 
-bst.for_each(cb)
+# bst.for_each(cb)
 
-print('5: ', 5, 5 in arr)
-print('v1: ', v1, v1 in arr)
-print('v2: ', v2, v2 in arr)
-print('v3: ', v3, v3 in arr)
-print('v4: ', v4, v4 in arr)
-print('v5: ', v5, v5 in arr)
+# print('5: ', 5, 5 in arr)
+# print('v1: ', v1, v1 in arr)
+# print('v2: ', v2, v2 in arr)
+# print('v3: ', v3, v3 in arr)
+# print('v4: ', v4, v4 in arr)
+# print('v5: ', v5, v5 in arr)
+
+bst = BinarySearchTree(1)
+bst.insert(8)
+bst.insert(5)
+bst.insert(7)
+bst.insert(6)
+bst.insert(3)
+bst.insert(4)
+bst.insert(2)
+
+bst.in_order_print(bst)
