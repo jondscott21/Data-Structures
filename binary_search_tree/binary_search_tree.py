@@ -1,9 +1,9 @@
 import sys
 import random
-# sys.path.append('../queue_and_stack')
-# from dll_queue import Queue
-# from dll_stack import Stack
-
+sys.path.append('./dll_stack')
+sys.path.append('./dll_queue')
+from dll_queue import Queue
+from dll_stack import Stack
 
 class BinarySearchTree:
     def __init__(self, value):
@@ -78,13 +78,28 @@ class BinarySearchTree:
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self, node):
-        pass
+        queue = Queue()
+        queue.enqueue(self)
+        while queue.len() > 0:
+            current_node = queue.dequeue()
+            print(current_node.value)   
+            if current_node.right:
+                queue.enqueue(current_node.right)
+            if current_node.left:
+                queue.enqueue(current_node.left)
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
-        pass
-
+        stack = Stack()
+        stack.push(self)
+        while stack.len() > 0:
+            current_node = stack.pop()
+            print(current_node.value)   
+            if current_node.right:
+                stack.push(current_node.right)
+            if current_node.left:
+                stack.push(current_node.left)
     # STRETCH Goals -------------------------
     # Note: Research may be required
 
@@ -115,6 +130,15 @@ bst.insert(2)
 
 bst.in_order_print(bst)
 print('******')
+bst.bft_print(bst)
+print('******')
 bst.pre_order_dft(bst)
 print('******')
 bst.post_order_dft(bst)
+
+def print_falsey(val):
+    if not val:
+        print('1st', True)
+    if val is None:
+        print('2nd',True)
+print_falsey(0)
