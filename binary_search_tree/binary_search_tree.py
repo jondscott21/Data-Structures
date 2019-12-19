@@ -72,7 +72,8 @@ class BinarySearchTree:
         print(node.value)
         if node.right is not None:
             self.right.in_order_print(node.right)
-        # return
+        
+
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
@@ -87,64 +88,33 @@ class BinarySearchTree:
     # STRETCH Goals -------------------------
     # Note: Research may be required
 
-    # Print In-order recursive DFT
+    # Print Pre-order recursive DFT
     def pre_order_dft(self, node):
-        pass
+        print(node.value)
+        if node.left is not None:
+            self.left.pre_order_dft(node.left)
+        if node.right is not None:
+            self.right.pre_order_dft(node.right)
 
     # Print Post-order recursive DFT
     def post_order_dft(self, node):
-        pass
+        if node.left is not None:
+            self.left.post_order_dft(node.left)
+        if node.right is not None:
+            self.right.post_order_dft(node.right)
+        print(node.value)
 
-# bst = BinarySearchTree(5)
+bst = BinarySearchTree(1)
+bst.insert(8)
+bst.insert(5)
+bst.insert(7)
+bst.insert(6)
+bst.insert(3)
+bst.insert(4)
+bst.insert(2)
 
-# bst.insert(2)
-# bst.insert(3)
-# bst.insert(6)
-# bst.insert(7)
-# bst.insert(10)
-# print(bst.contains(10))
-# print(bst.contains(8))
-# print(bst.left.right.value)
-# print(bst.right.left.value)
-
-# print(bst.get_max())
-# bst.insert(30)
-# print(bst.get_max())
-# bst.insert(300)
-# bst.insert(3)
-# print(bst.get_max())
-
-# arr = []
-# cb = lambda x: arr.append(x)
-
-# v1 = random.randint(1, 101)
-# v2 = random.randint(1, 101)
-# v3 = random.randint(1, 101)
-# v4 = random.randint(1, 101)
-# v5 = random.randint(1, 101)
-
-# bst.insert(v1)
-# bst.insert(v2)
-# bst.insert(v3)
-# bst.insert(v4)
-# bst.insert(v5)
-
-# bst.for_each(cb)
-
-# print('5: ', 5, 5 in arr)
-# print('v1: ', v1, v1 in arr)
-# print('v2: ', v2, v2 in arr)
-# print('v3: ', v3, v3 in arr)
-# print('v4: ', v4, v4 in arr)
-# print('v5: ', v5, v5 in arr)
-
-# bst = BinarySearchTree(1)
-# bst.insert(8)
-# bst.insert(5)
-# bst.insert(7)
-# bst.insert(6)
-# bst.insert(3)
-# bst.insert(4)
-# bst.insert(2)
-
-# bst.in_order_print(bst)
+bst.in_order_print(bst)
+print('******')
+bst.pre_order_dft(bst)
+print('******')
+bst.post_order_dft(bst)
