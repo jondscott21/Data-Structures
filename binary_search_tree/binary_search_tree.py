@@ -68,10 +68,10 @@ class BinarySearchTree:
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
         if node.left is not None:
-            self.left.in_order_print(node.left)
+            node.left.in_order_print(node.left)
         print(node.value)
         if node.right is not None:
-            self.right.in_order_print(node.right)
+            node.right.in_order_print(node.right)
         
 
 
@@ -119,26 +119,35 @@ class BinarySearchTree:
             self.right.post_order_dft(node.right)
         print(node.value)
 
-bst = BinarySearchTree(1)
-bst.insert(8)
-bst.insert(5)
-bst.insert(7)
-bst.insert(6)
-bst.insert(3)
-bst.insert(4)
-bst.insert(2)
+# bst = BinarySearchTree(1)
+# bst.insert(8)
+# bst.insert(5)
+# bst.insert(7)
+# bst.insert(6)
+# bst.insert(3)
+# bst.insert(4)
+# bst.insert(2)
+
+bst = BinarySearchTree('jerry')
+bst.insert('fred')
+bst.insert('tom')
+bst.insert('bob')
+bst.insert('angela')
+bst.insert('sam')
+bst.insert('jenny')
+bst.insert('ashley')
 
 bst.in_order_print(bst)
-print('******')
-bst.bft_print(bst)
-print('******')
-bst.pre_order_dft(bst)
-print('******')
-bst.post_order_dft(bst)
+# print('******')
+# bst.bft_print(bst)
+# print('******')
+# bst.pre_order_dft(bst)
+# print('******')
+# bst.post_order_dft(bst)
 
-def print_falsey(val):
-    if not val:
-        print('1st', True)
-    if val is None:
-        print('2nd',True)
-print_falsey(0)
+# def print_falsey(val):
+#     if not val:
+#         print('1st', True)
+#     if val is None:
+#         print('2nd',True)
+# print_falsey(0)
